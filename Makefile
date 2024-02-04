@@ -172,6 +172,7 @@ GENERIC_DEPS = \
 	inc/banks.inc \
 	inc/jsrfar.inc \
 	inc/regs.inc \
+	inc/65c816.inc \
 	kernsup/kernsup.inc
 
 KERNAL_DEPS = \
