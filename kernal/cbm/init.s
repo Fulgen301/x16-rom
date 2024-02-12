@@ -6,6 +6,8 @@
 
 .feature labels_without_colons
 
+.include "65c816.inc"
+
 .import cint, ramtas, ioinit, enter_basic, restor, vera_wait_ready, call_audio_init, boot_cartridge, i2c_restore
 
 .export start
