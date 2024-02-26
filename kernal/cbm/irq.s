@@ -16,14 +16,14 @@
 .import joystick_scan
 .import cursor_blink
 .import led_update
+.import __interrupt_65c816_native_kernal_impl_ret
 .export panic
+.export irq_emulated_impl
 
 .include "banks.inc"
 .include "io.inc"
 
-; VBLANK IRQ handler
-;
-key
+.macro irq_impl
 	jsr mouse_scan  ;scan mouse (do this first to avoid sprite tearing)
 	jsr joystick_scan
 	jsr clock_update
@@ -33,6 +33,16 @@ key
 
 	lda #1
 	sta VERA_ISR    ;ack VERA VBLANK
+.endmacro
+
+irq_emulated_impl:
+	irq_impl
+	jmp __interrupt_65c816_native_kernal_impl_ret
+
+; VBLANK IRQ handler
+;
+key
+	irq_impl
 
 	ply
 	plx
