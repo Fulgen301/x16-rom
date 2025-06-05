@@ -41,6 +41,7 @@ KERNAL_CORE_SOURCES = \
 	kernal/cbm/util.s \
 	kernal/cbm/serial.s \
 	kernal/x16/extapi.s \
+	kernal/x16/newioapi.s \
 	kernal/x16/65c816/interrupt.s \
 	kernal/x16/65c816/stack.s \
 	kernal/x16/65c816/extapi16.s

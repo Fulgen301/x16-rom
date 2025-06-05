@@ -88,10 +88,17 @@ ramtas:
 ; clear bank 0 kernal variables
 ;
 .assert __KVARSB0_SIZE__ < 256, error, "KVARSB0 overflow!"
+	ldx #0
+:	stz __KVARSB0_LOAD__,x
+	dex
+	bne :-
+
+.if 0
 	ldx #<__KVARSB0_SIZE__
 :	stz __KVARSB0_LOAD__,x
 	dex
 	bne :-
+.endif
 
 ;
 ; clear bank 0 VARFONTS

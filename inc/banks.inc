@@ -87,3 +87,15 @@ edkeybk    = $ac05
 	stx ram_bank
 .endmacro
 
+.macro KVARS_START_TRASH_Y_NZ
+.import kvswitch_tmp1, kvswitch_tmp2
+	ldy ram_bank
+	phy
+	stz ram_bank
+.endmacro
+
+.macro KVARS_END_TRASH_Y_NZ
+	ply
+	sty ram_bank
+.endmacro
+

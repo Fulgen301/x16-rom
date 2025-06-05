@@ -16,6 +16,9 @@
 .import default_palette
 .import has_machine_property
 
+.import register_device, unregister_device
+.import file_open
+
 .export extapi
 
 .segment "UTIL"
@@ -63,3 +66,6 @@ apitbl:
 	.word memory_decompress_internal-1 ; API 15
 	.word default_palette-1            ; API 16
 	.word has_machine_property-1       ; API 17
+	.word register_device-1            ; API 18
+	.word unregister_device-1          ; API 19
+	.word file_open-1                  ; API 20
